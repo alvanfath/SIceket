@@ -1,14 +1,12 @@
-Hello guys this is my MVVM flutter project 
-this project is use 
-    - Bloc 
-    - Hive
-    - Freezed
-    - GetIt
+Siceket adalah aplikasi yang menyediakan jasa cek resi dan cek ongkir
+berbasis framework Flutter dan menggunakan bahasa pemograman dart
 
-note: dont forget to add .env file in your project and google.services.json in android/app folder for firebase
+Aplikasi ini menggunakan third party yaitu https://binderbyte.com/ untuk jasa lacak paket
+dan https://rajaongkir.com/ untuk jasa cek ongkos kirim
 
-this is command for this project
-    - Run `flutter pub run build_runner build --delete-conflicting-outputs` to generate freezes files
+semuanya dipastikan gratis untuk penggunaan API dari masing masing platform
 
 Author: Alvan Fathurahman
-gmail: fathuralvan28@gmail.com
+kontak lebih lanjut: fathuralvan28@gmail.com
+
+🎉 Happy coding 🎉
