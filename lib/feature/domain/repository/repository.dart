@@ -1,5 +1,5 @@
-import 'package:cek_ongkir/core/client/client.dart';
-import 'package:cek_ongkir/feature/data/model/general_response.dart';
+import 'package:siceket/core/client/client.dart';
+import 'package:siceket/feature/data/model/general_response.dart';
 import 'package:dartz/dartz.dart';
 
 abstract class Repository {
@@ -14,6 +14,11 @@ abstract class Repository {
     required Map<String, String> moreHeader,
   });
   Future<Either<Failure, GeneralResponse>> postRequest({
+    required String url,
+    required Map<String, dynamic> data,
+    required Map<String, String> moreHeader,
+  });
+  Future<Either<Failure, dynamic>> postDynamic({
     required String url,
     required Map<String, dynamic> data,
     required Map<String, String> moreHeader,

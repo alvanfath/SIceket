@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:heroicons/heroicons.dart';
-import 'package:cek_ongkir/core/core.dart';
-import 'package:cek_ongkir/utils/utils.dart';
+import 'package:siceket/core/core.dart';
+import 'package:siceket/utils/utils.dart';
 
 class TextFormSelectSearch extends StatefulWidget {
   final Map<String, dynamic>? dataSelected;
@@ -10,6 +10,7 @@ class TextFormSelectSearch extends StatefulWidget {
   final String? label;
   final String idDisplay;
   final String textDisplay;
+  final String? textAdditional;
   final String? modalTitle;
   final String searchPlaceholder;
   final Function1<dynamic, void> onSelect;
@@ -24,6 +25,7 @@ class TextFormSelectSearch extends StatefulWidget {
     required this.searchPlaceholder,
     required this.onSelect,
     this.modalTitle,
+    this.textAdditional,
   });
 
   @override
@@ -34,7 +36,11 @@ class _TextFormSelectSearchState extends State<TextFormSelectSearch> {
   @override
   Widget build(BuildContext context) {
     final Widget dataWidget = widget.dataSelected != null
-        ? selectedText(widget.dataSelected![widget.textDisplay].toString())
+        ? selectedText(
+            widget.textAdditional != null
+                ? '${widget.dataSelected![widget.textAdditional]} ${widget.dataSelected![widget.textDisplay]}'
+                : widget.dataSelected![widget.textDisplay].toString(),
+          )
         : placeHolderText(widget.placeHolder);
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -65,6 +71,7 @@ class _TextFormSelectSearchState extends State<TextFormSelectSearch> {
                   displayKey: widget.textDisplay,
                   listData: widget.listData,
                   placeHolderSearch: widget.searchPlaceholder,
+                  additionalKey: widget.textAdditional,
                   onSelected: widget.onSelect,
                 );
               },
@@ -125,6 +132,7 @@ class DropdownSearch extends StatefulWidget {
   final String placeHolderSearch;
   final String keyId;
   final String displayKey;
+  final String? additionalKey;
   final List<dynamic> listData;
   final Function1<dynamic, void> onSelected;
 
@@ -137,6 +145,7 @@ class DropdownSearch extends StatefulWidget {
     required this.listData,
     required this.placeHolderSearch,
     required this.onSelected,
+    this.additionalKey,
   });
 
   @override
@@ -164,13 +173,22 @@ class _DropdownSearchState extends State<DropdownSearch> {
     List<dynamic> originalList,
     String searchTerm,
   ) {
-    return originalList
-        .where((map) => map[widget.displayKey]
-            .toString()
-            .toLowerCase()
-            .replaceAll(' ', '')
-            .contains(searchTerm.toLowerCase().replaceAll(' ', '')))
-        .toList();
+    final List<String> keys = [
+      widget.displayKey,
+    ];
+    if (widget.additionalKey != null) {
+      keys.add(widget.additionalKey!);
+    }
+    List<String> searchTerms =
+        searchTerm.toLowerCase().split(' ').map((term) => term.trim()).toList();
+
+    return originalList.where((map) {
+      return searchTerms.every((term) {
+        return keys.any((key) {
+          return map[key].toString().toLowerCase().contains(term);
+        });
+      });
+    }).toList();
   }
 
   @override
@@ -273,7 +291,9 @@ class _DropdownSearchState extends State<DropdownSearch> {
                               ),
                             ),
                             child: TextWidget(
-                              text: e[widget.displayKey].toString(),
+                              text: widget.additionalKey != null
+                                  ? '${e[widget.additionalKey]} ${e[widget.displayKey]}'
+                                  : e[widget.displayKey].toString(),
                               fontSize: 14,
                               fontWeight:
                                   isSelect ? FontWeight.w500 : FontWeight.w400,

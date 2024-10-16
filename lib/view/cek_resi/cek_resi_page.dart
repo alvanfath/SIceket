@@ -1,6 +1,6 @@
-import 'package:cek_ongkir/core/core.dart';
-import 'package:cek_ongkir/utils/utils.dart';
-import 'package:cek_ongkir/view/view.dart';
+import 'package:siceket/core/core.dart';
+import 'package:siceket/utils/utils.dart';
+import 'package:siceket/view/view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

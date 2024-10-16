@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
-import 'package:cek_ongkir/core/core.dart';
-import 'package:cek_ongkir/utils/utils.dart';
+import 'package:siceket/core/core.dart';
+import 'package:siceket/utils/utils.dart';
 
 class OtpWidget extends StatefulWidget {
   final String titleAppBar;

@@ -1,6 +1,9 @@
+import 'dart:convert';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:cek_ongkir/core/core.dart';
-import 'package:cek_ongkir/feature/feature.dart';
+import 'package:siceket/core/core.dart';
+import 'package:siceket/feature/feature.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -18,7 +21,10 @@ class CekResiCubit extends Cubit<CekResiState> {
     emit(const _Loading());
     try {
       final response = await getDynamic.call(
-        url: 'v1/list_courier',
+        url: 'https://api.binderbyte.com/v1/list_courier',
+        queryParam: {
+          'api_key': dotenv.env['API_KEY_BINDER'].toString(),
+        },
       );
       response.fold(
         (left) {
@@ -27,7 +33,7 @@ class CekResiCubit extends Cubit<CekResiState> {
           }
         },
         (right) {
-          listCourir.add(right);
+          listCourir.add(jsonDecode(right));
           emit(const _Initial());
         },
       );
@@ -44,8 +50,9 @@ class CekResiCubit extends Cubit<CekResiState> {
     emit(const _Loading());
     try {
       final response = await getRequest.call(
-        url: 'v1/track',
+        url: 'https://api.binderbyte.com/v1/track',
         queryParam: {
+          'api_key': dotenv.env['API_KEY_BINDER'].toString(),
           'courier': code,
           'awb': noResi,
         },

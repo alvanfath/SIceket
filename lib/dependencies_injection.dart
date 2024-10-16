@@ -1,8 +1,8 @@
-import 'package:cek_ongkir/view/view.dart';
+import 'package:siceket/view/view.dart';
 import 'package:get_it/get_it.dart';
-import 'package:cek_ongkir/core/core.dart';
-import 'package:cek_ongkir/feature/feature.dart';
-import 'package:cek_ongkir/utils/utils.dart';
+import 'package:siceket/core/core.dart';
+import 'package:siceket/feature/feature.dart';
+import 'package:siceket/utils/utils.dart';
 
 GetIt sl = GetIt.instance;
 
@@ -43,11 +43,13 @@ void dataSource() {
 
 void useCase() {
   sl.registerLazySingleton(() => GetRequestUseCase(sl()));
+  sl.registerLazySingleton(() => GetDynamicUseCase(sl()));
   sl.registerLazySingleton(() => PostFormDataUseCase(sl()));
   sl.registerLazySingleton(() => PostRequestUseCase(sl()));
-  sl.registerLazySingleton(() => GetDynamicUseCase(sl()));
+  sl.registerLazySingleton(() => PostDynamicUseCase(sl()));
 }
 
 void cubit() {
   sl.registerFactory(() => CekResiCubit(sl(), sl()));
+  sl.registerFactory(() => CekOngkirCubit(sl(), sl()));
 }

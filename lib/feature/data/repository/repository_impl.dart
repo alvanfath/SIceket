@@ -1,8 +1,8 @@
-import 'package:cek_ongkir/core/client/client.dart';
-import 'package:cek_ongkir/feature/data/datasource/remotedata_source.dart';
-import 'package:cek_ongkir/feature/data/model/general_response.dart';
-import 'package:cek_ongkir/feature/domain/repository/repository.dart';
-import 'package:cek_ongkir/utils/service/hive/hive.dart';
+import 'package:siceket/core/client/client.dart';
+import 'package:siceket/feature/data/datasource/remotedata_source.dart';
+import 'package:siceket/feature/data/model/general_response.dart';
+import 'package:siceket/feature/domain/repository/repository.dart';
+import 'package:siceket/utils/service/hive/hive.dart';
 import 'package:dartz/dartz.dart';
 
 class RepositoryImpl implements Repository {
@@ -27,6 +27,7 @@ class RepositoryImpl implements Repository {
       (right) => Right(right),
     );
   }
+
   @override
   Future<Either<Failure, dynamic>> getDynamic({
     required String url,
@@ -51,6 +52,23 @@ class RepositoryImpl implements Repository {
     required Map<String, String> moreHeader,
   }) async {
     final response = await remoteDataSource.postRequest(
+      url: url,
+      data: data,
+      moreHeader: moreHeader,
+    );
+    return response.fold(
+      (left) => Left(left),
+      (right) => Right(right),
+    );
+  }
+
+  @override
+  Future<Either<Failure, Map<String, dynamic>>> postDynamic({
+    required String url,
+    required Map<String, dynamic> data,
+    required Map<String, String> moreHeader,
+  }) async {
+    final response = await remoteDataSource.postDynamic(
       url: url,
       data: data,
       moreHeader: moreHeader,

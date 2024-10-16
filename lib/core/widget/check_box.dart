@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:cek_ongkir/utils/service/constant/constants.dart';
+import 'package:siceket/utils/service/constant/constants.dart';
 
 class CheckBoxWidget extends StatelessWidget {
   final bool isCheck;

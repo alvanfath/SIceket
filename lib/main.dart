@@ -7,9 +7,9 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:oktoast/oktoast.dart';
-import 'package:cek_ongkir/dependencies_injection.dart';
-import 'package:cek_ongkir/route.dart';
-import 'package:cek_ongkir/utils/utils.dart';
+import 'package:siceket/dependencies_injection.dart';
+import 'package:siceket/route.dart';
+import 'package:siceket/utils/utils.dart';
 
 class MyHttpOverrides extends HttpOverrides {
   @override
@@ -49,7 +49,7 @@ class MyApp extends StatelessWidget {
         splitScreenMode: true,
         builder: (context, __) {
           Routing.setStream(context);
-    
+
           return MaterialApp.router(
             routerConfig: Routing.router,
             debugShowCheckedModeBanner: false,
@@ -63,7 +63,7 @@ class MyApp extends StatelessWidget {
             ),
             builder: (BuildContext context, Widget? child) {
               final MediaQueryData data = MediaQuery.of(context);
-    
+
               return MediaQuery(
                 data: data.copyWith(
                   textScaleFactor: 1,

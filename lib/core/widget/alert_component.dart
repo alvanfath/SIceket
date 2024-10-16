@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:heroicons/heroicons.dart';
-import 'package:cek_ongkir/core/core.dart';
+import 'package:siceket/core/core.dart';
 
 import '../../utils/service/services.dart';
 

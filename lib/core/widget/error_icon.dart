@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:heroicons/heroicons.dart';
-import 'package:cek_ongkir/utils/utils.dart';
+import 'package:siceket/utils/utils.dart';
 
 class ErrorIcon extends StatelessWidget {
   final bool isError;

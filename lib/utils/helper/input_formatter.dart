@@ -15,6 +15,20 @@ class NoLeadingSpaceFormatter extends TextInputFormatter {
     return newValue;
   }
 }
+class NoZeroSpaceFormatter extends TextInputFormatter {
+  @override
+  TextEditingValue formatEditUpdate(
+    TextEditingValue oldValue,
+    TextEditingValue newValue,
+  ) {
+    // Check if the new value starts with a space
+    if (newValue.text.startsWith('0')) {
+      // Return the old value to prevent the space from being added
+      return oldValue;
+    }
+    return newValue;
+  }
+}
 
 class LowerCaseTextFormatter extends TextInputFormatter {
   @override
@@ -58,6 +72,31 @@ class RupiahFormatter extends TextInputFormatter {
     // Format the input as a currency value with Rupiah.
     final formattedText = NumberFormat.currency(
       symbol: 'Rp ',
+      locale: 'id_ID',
+      decimalDigits: 0,
+    ).format(double.tryParse(text));
+
+    if (formattedText.length > 17) {
+      return oldValue;
+    } else {
+      return TextEditingValue(
+        text: formattedText,
+        selection: TextSelection.collapsed(offset: formattedText.length),
+      );
+    }
+  }
+}
+class RupiahNoSymbolFormatter extends TextInputFormatter {
+  @override
+  TextEditingValue formatEditUpdate(
+    TextEditingValue oldValue,
+    TextEditingValue newValue,
+  ) {
+    String text = newValue.text;
+
+    // Format the input as a currency value with Rupiah.
+    final formattedText = NumberFormat.currency(
+      symbol: '',
       locale: 'id_ID',
       decimalDigits: 0,
     ).format(double.tryParse(text));

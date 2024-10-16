@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:cek_ongkir/utils/service/constant/constants.dart';
-import 'package:cek_ongkir/utils/service/services.dart';
+import 'package:siceket/utils/service/constant/constants.dart';
+import 'package:siceket/utils/service/services.dart';
 import 'text.dart';
 
 class TextF extends StatefulWidget {

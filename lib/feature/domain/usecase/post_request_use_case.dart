@@ -1,6 +1,6 @@
-import 'package:cek_ongkir/core/client/client.dart';
-import 'package:cek_ongkir/feature/data/model/general_response.dart';
-import 'package:cek_ongkir/feature/domain/repository/repository.dart';
+import 'package:siceket/core/client/client.dart';
+import 'package:siceket/feature/data/model/general_response.dart';
+import 'package:siceket/feature/domain/repository/repository.dart';
 import 'package:dartz/dartz.dart';
 
 class PostRequestUseCase {

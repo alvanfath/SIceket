@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:oktoast/oktoast.dart';
-import 'package:cek_ongkir/core/core.dart';
-import 'package:cek_ongkir/utils/utils.dart';
+import 'package:siceket/core/core.dart';
+import 'package:siceket/utils/utils.dart';
 
 extension StringExtension on String {
   bool isValidEmail() {

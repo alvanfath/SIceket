@@ -1,17 +1,15 @@
 import 'dart:io';
 
-import 'package:cek_ongkir/core/client/dio_interceptor.dart';
-import 'package:cek_ongkir/core/client/exceptions.dart';
+import 'package:siceket/core/client/dio_interceptor.dart';
+import 'package:siceket/core/client/exceptions.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http_parser/http_parser.dart';
-import 'package:cek_ongkir/utils/utils.dart';
+import 'package:siceket/utils/utils.dart';
 
 typedef ResponseConverter<T> = T Function(dynamic response);
 
 class DioClient with BoxMixin, FirebaseCrashLogger {
-  String baseUrl = dotenv.env['BASE_URL'] as String;
   late Dio _dio;
   DioClient() {
     _dio = _createDio();
@@ -32,7 +30,6 @@ class DioClient with BoxMixin, FirebaseCrashLogger {
 
   Dio _createDio() => Dio(
         BaseOptions(
-          baseUrl: '$baseUrl/',
           headers: {},
           receiveTimeout: const Duration(minutes: 1),
           connectTimeout: const Duration(minutes: 1),

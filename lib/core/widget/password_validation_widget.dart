@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:cek_ongkir/core/core.dart';
-import 'package:cek_ongkir/utils/helper/helper.dart';
-import 'package:cek_ongkir/utils/service/constant/constants.dart';
+import 'package:siceket/core/core.dart';
+import 'package:siceket/utils/helper/helper.dart';
+import 'package:siceket/utils/service/constant/constants.dart';
 
 class PasswordValidate extends StatelessWidget {
   final String password;

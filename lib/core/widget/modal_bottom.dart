@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:cek_ongkir/core/core.dart';
-import 'package:cek_ongkir/utils/service/constant/constants.dart';
+import 'package:siceket/core/core.dart';
+import 'package:siceket/utils/service/constant/constants.dart';
 
 class ModaLBottomTemplate extends StatelessWidget {
   final double padding;

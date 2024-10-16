@@ -1,5 +1,5 @@
 import 'package:heroicons/heroicons.dart';
-import 'package:cek_ongkir/core/widget/text.dart';
+import 'package:siceket/core/widget/text.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 

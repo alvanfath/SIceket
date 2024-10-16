@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:cek_ongkir/core/core.dart';
+import 'package:siceket/core/core.dart';
 
 void failureGenerator(
   BuildContext context,

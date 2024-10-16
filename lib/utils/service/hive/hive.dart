@@ -1,5 +1,5 @@
-import 'package:cek_ongkir/utils/service/constant/constants.dart';
-import 'package:cek_ongkir/utils/service/firebase/firebase_crash.dart';
+import 'package:siceket/utils/service/constant/constants.dart';
+import 'package:siceket/utils/service/firebase/firebase_crash.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 enum KeyStorage {

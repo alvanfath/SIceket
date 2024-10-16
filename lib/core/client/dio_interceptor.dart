@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:cek_ongkir/utils/helper/logger.dart';
-import 'package:cek_ongkir/utils/service/firebase/firebase_crash.dart';
+import 'package:siceket/utils/helper/logger.dart';
+import 'package:siceket/utils/service/firebase/firebase_crash.dart';
 import 'package:dio/dio.dart';
 
 class DioInterceptor extends Interceptor with FirebaseCrashLogger {

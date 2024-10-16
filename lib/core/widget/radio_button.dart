@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:cek_ongkir/core/core.dart';
-import 'package:cek_ongkir/utils/utils.dart';
+import 'package:siceket/core/core.dart';
+import 'package:siceket/utils/utils.dart';
 
 class RadioButton extends StatelessWidget {
   final dynamic currentValue;
